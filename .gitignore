@@ -1,0 +1,8 @@
+starter_code/target/
+target/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr

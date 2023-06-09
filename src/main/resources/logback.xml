@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <Appender name="http" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+        <url>http://127.0.0.1:8088</url>
+        <token>9d90852d-aa3e-4bd3-82e9-41c1248826fd</token>
+        <!--host>%user_host%</host-->
+        <index>ecommerce_index</index>
+        <!--source>splunktest_accept</source>
+        <sourcetype>%user_sourcetype%</sourcetype-->
+        <messageFormat>text</messageFormat>
+        <!--disableCertificateValidation>true</disableCertificateValidation>
+        <batch_interval>%user_batch_interval%</batch_interval>
+        <batch_size_bytes>%user_batch_size_bytes%</batch_size_bytes-->
+        <batch_size_count>1</batch_size_count>
+        <!--send_mode>%user_send_mode%</send_mode>
+        <middleware>%user_middleware%</middleware>
+        <eventBodySerializer>%user_eventBodySerializer%</eventBodySerializer>
+        <eventHeaderSerializer>%user_eventHeaderSerializer%</eventHeaderSerializer>
+        <errorCallback>%user_errorCallback%</errorCallback-->
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%msg</pattern>
+        </layout>
+    </Appender>
+
+    <logger name="splunk.logger" additivity="false" level="INFO">
+        <appender-ref ref="http"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="http"/>
+    </root>
+
+    <!--appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root-->
+
+</configuration>
