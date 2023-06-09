@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/sql/delete-all-data.sql")
-public class AbstractControllerTest {
+public abstract class AbstractControllerTest {
 
     protected UserController userController;
 
